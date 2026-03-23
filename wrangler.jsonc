@@ -1,0 +1,34 @@
+{
+  "name": "gmail-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-20",
+  "compatibility_flags": ["nodejs_compat"],
+  "migrations": [
+    {
+      "new_sqlite_classes": ["GmailMCP"],
+      "tag": "v1"
+    }
+  ],
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "GmailMCP",
+        "name": "MCP_OBJECT"
+      }
+    ]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      "id": "da65e086f51a4589ade815759c89eef1",
+      "remote": true
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+  // Secrets (set via `wrangler secret put`):
+  // - GOOGLE_CLIENT_ID
+  // - GOOGLE_CLIENT_SECRET
+  // - COOKIE_ENCRYPTION_KEY
+}
